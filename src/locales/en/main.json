@@ -1,0 +1,12 @@
+{
+    "apiKey": "API Key",
+    "apiKeyInputPlaceholder": "Required API key input",
+    "languageChangeLabel": "Aa",
+    "imagePrompt": "Image Prompt",
+    "promptAlertMessage": "Presentation words are divided by ','",
+    "negativePrompt": "Negative Prompt",
+    "seedLabel": "Seed",
+    "formatLabel": "Format",
+    "aspectLabel": "Aspect Ratio",
+    "generateButton": "Generate"
+}
