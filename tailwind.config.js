@@ -21,7 +21,7 @@ export default {
         200: "200px",
         700: "700px",
 
-        "54px": "54px",
+        "70px": "70px",
 
         "calc(-20)": "calc(100% - 20px)",
       },
@@ -31,6 +31,11 @@ export default {
         1024: "1024px",
       },
 
+      margin: {
+        "200px": "200px",
+        "330px": "330px",
+      },
+
       colors: {
         gray: {
           DEFAULT: "#222222",
@@ -38,8 +43,6 @@ export default {
           2: "#999999",
         }
       },
-
-      cursor: { p: "pointer", },
 
       fontSize: {
         xs: "10px",

@@ -2,11 +2,13 @@
     "apiKey": "API Key",
     "apiKeyInputPlaceholder": "Required API key input",
     "languageChangeLabel": "Aa",
+    "colorPickerApply": "Apply",
     "imagePrompt": "Image Prompt",
     "promptAlertMessage": "Presentation words are divided by ','",
     "negativePrompt": "Negative Prompt",
     "seedLabel": "Seed",
     "formatLabel": "Format",
     "aspectLabel": "Aspect Ratio",
+    "quantity": "Quantity to be generate",
     "generateButton": "Generate"
 }
