@@ -1,8 +1,8 @@
 class OpenAiApiHandler {
-    apiKey = '';
-    imageSize = "1024x1024";
-    imageModel = "dall-e-2";
-    imageNum = 1;
+    private apiKey: string = '';
+    private imageSize: string = "1024x1024";
+    private imageModel: string = "dall-e-2";
+    private imageNum: number = 1;
     //dall-e-2, dall-e-3 etc... checkout here(https://platform.openai.com/docs/api-reference/images/createEdit)
     //each api supports different model but dall-e-2 is always supported.
 
@@ -12,23 +12,23 @@ class OpenAiApiHandler {
         this.setApiKey("");
     }
 
-    setApiKey(key) {
+    setApiKey(key: string): void {
         this.apiKey = key;
     }
 
-    setImageSize(newSize) {
+    setImageSize(newSize: string): void {
         this.imageSize = newSize;
     }
 
-    setImageModel(modelName) {
+    setImageModel(modelName: string): void {
         this.imageModel = modelName;
     }
 
-    setImageNum(imageNum) {
+    setImageNum(imageNum: number): void {
         this.imageNum = imageNum;
     }
 
-    async postTextToImage(prompt, num = this.imageNum) {
+    async postTextToImage(prompt: string, num: number = this.imageNum): Promise<any> {
         console.log("OpenAiApiHandler::postTextToImage");
         const requestBody = {
             prompt: prompt,
@@ -46,7 +46,7 @@ class OpenAiApiHandler {
                 },
                 body: JSON.stringify(requestBody)
             });
-            const data = response.json();
+            const data = await response.json();
             if (response.status !== 200) {
                 throw data;
             } else {
@@ -57,93 +57,88 @@ class OpenAiApiHandler {
         }
     }
 
-    async postImageVariation(image, num = 1) {
+    async postImageVariation(image: Blob, num: number = 1): Promise<any> {
         console.log("OpenAiApiHandler::postImageVariation");
         const formData = new FormData();
         formData.append('image', image);
-        formData.append('n', num);
+        formData.append('n', num.toString());
         formData.append('size', this.imageSize);
 
-        return new Promise((resolve, reject) => {
-            fetch('https://api.openai.com/v1/images/variations', {
+        try {
+            const response = await fetch('https://api.openai.com/v1/images/variations', {
                 method: 'POST',
                 headers: {
                     'Authorization': 'Bearer ' + this.apiKey
                 },
                 body: formData
-            }).then(response => {
-                if (response.status !== 200) {
-                    reject(response);
-                } else {
-                    const data = response.json();
-                    resolve(data);
-                }
-            }).catch(error => {
-                reject(error);
             });
-        });
+            const data = await response.json();
+            if (response.status !== 200) {
+                throw data;
+            } else {
+                return data;
+            }
+        } catch(error) {
+            throw error;
+        }
     }
 
-    async postImageEdit(image, prompt, mask = undefined, num = 1) {
+    async postImageEdit(image: Blob, prompt: string, mask: Blob | undefined = undefined, num: number = 1): Promise<any> {
         console.log("openAiApiHandler::postImageEdit");
         const formData = new FormData();
         formData.append('image', image);
         formData.append('prompt', prompt);
-        formData.append('n', num);
+        formData.append('n', num.toString());
         formData.append('size', this.imageSize);
         if (mask !== undefined) {
             formData.append('mask', mask);
         }
 
-        return new Promise((resolve, reject) => {
-            fetch('https://api.openai.com/v1/images/edits', {
+        try {
+            const response = await fetch('https://api.openai.com/v1/images/edits', {
                 method: 'POST',
                 headers: {
                     'Authorization': 'Bearer ' + this.apiKey
                 },
                 body: formData
-            }).then(response => {
-                if (response.status !== 200) {
-                    reject(response);
-                } else {
-                    const data = response.json();
-                    resolve(data);
-                }
-            }).catch(error => {
-                console.log("openAiApiHandler::postImageEdit - error", error);
-                reject(error);
             });
-        });
+            const data = await response.json();
+            if (response.status !== 200) {
+                throw data;
+            } else {
+                return data;
+            }
+        } catch(error) {
+            throw error;
+        }
     }
 
-    async postChatCompletions(messages) {
+    async postChatCompletions(messages: Array<{ role: string, content: Array<{ type: string, text: string }> }>): Promise<any> {
         const requestBody = {
-            "model": "gpt-4o",
+            "model": "gpt-4",
             "messages": messages
         };
-        return new Promise((resolve, reject) => {
-            fetch('https://api.openai.com/v1/chat/completions', {
+        try {
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
                 method: 'POST',
                 headers: {
                     'Authorization': 'Bearer ' + this.apiKey,
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(requestBody)
-            }).then(response => {
-                if (response.status !== 200) {
-                    reject(response);
-                } else {
-                    const data = response.json();
-                    resolve(data);
-                }
-            }).catch(error => {
-                console.log("openAiApiHandler::postImageEdit - error", error);
-                reject(error);
             });
-        });
+            const data = await response.json();
+            if (response.status !== 200) {
+                throw data;
+            } else {
+                return data;
+            }
+        } catch(error) {
+            throw error;
+        }
     }
 
-    async postTextChat(message) {
+    async postTextChat(message: string): Promise<any> {
         return this.postChatCompletions([
             {
                 "role": "user",

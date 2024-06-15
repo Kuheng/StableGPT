@@ -1,11 +1,11 @@
 import dataManager from "./dataManager";
 
 class MaskImageManager {
-    setMaskImage(imageFile) {
+    setMaskImage(imageFile: File): void {
         dataManager.setData("MaskImage", imageFile);
     }
     
-    getMaskImage() {
+    getMaskImage(): File {
         return dataManager.getData("MaskImage");
     }
 }
