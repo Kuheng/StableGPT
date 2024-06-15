@@ -4,14 +4,14 @@ import referenceImageManager from "../manager/referenceImageManager";
 import maskImageManager from "../manager/maskImageManager";
 
 class GenerateImageHandler {
-    openAi = new OpenAiController();
-    stableDiffusion = new StableDiffusionController();
+    openAi: OpenAiController = new OpenAiController();
+    stableDiffusion: StableDiffusionController = new StableDiffusionController();
 }
 
 class OpenAiController {
-    async generate(prompt) {
-        const referenceImages = referenceImageManager.getReferenceImages() || [];
-        const maskImage = maskImageManager.getMaskImage();
+    async generate(prompt: string): Promise<any> {
+        const referenceImages: File[] = referenceImageManager.getReferenceImages() || [];
+        const maskImage: File | undefined = maskImageManager.getMaskImage();
         if (referenceImages.length === 0) {
             return await openAiApiHandler.postTextToImage(prompt);
         } else if(maskImage === undefined) {
@@ -23,7 +23,7 @@ class OpenAiController {
 }
 
 class StableDiffusionController {
-    generate(prompt) {
+    generate(prompt: string): Promise<any> {
         return stableDiffusionApiHandler.postTextToImage(prompt);
     }
 }

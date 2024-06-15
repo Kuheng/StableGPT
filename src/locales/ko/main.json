@@ -1,0 +1,14 @@
+{
+    "apiKey": "API 키",
+    "apiKeyInputPlaceholder": "API 키 입력 필수",
+    "languageChangeLabel": "가",
+    "colorPickerApply": "적용",
+    "imagePrompt": "제시어 프롬프트",
+    "promptAlertMessage": "제시어의 구분은 ,로 구분합니다.",
+    "negativePrompt": "제외 항목 프롬프트",
+    "seedLabel": "시드",
+    "formatLabel": "확장자",
+    "aspectLabel": "비율 사이즈",
+    "quantity": "생성될 수량",
+    "generateButton": "실행"
+}

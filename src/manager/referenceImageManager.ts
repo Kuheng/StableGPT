@@ -1,13 +1,13 @@
 import dataManager from "./dataManager";
 
 class ReferenceImageManager {
-    dataKey = "ReferenceImageFiles";
+    private dataKey: string = "ReferenceImageFiles";
 
-    setReferenceImages(imageFiles) {
+    setReferenceImages(imageFiles: File[]): void {
         dataManager.setData(this.dataKey, imageFiles);
     }
 
-    getReferenceImages() {
+    getReferenceImages(): File[] {
         return dataManager.getData(this.dataKey);
     }
 }
