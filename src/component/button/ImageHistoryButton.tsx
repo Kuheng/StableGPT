@@ -1,6 +1,6 @@
 import logo from "./../../logo.svg"
 
-function generateImageHistoryButton () {
+function ImageHistoryButton () {
   return (
     <div className="w-200 h-200 mr-5">
       <img src={logo} className="w-200 h-200" alt="" />
@@ -9,4 +9,4 @@ function generateImageHistoryButton () {
   );
 }
 
-export default generateImageHistoryButton;
+export default ImageHistoryButton;
