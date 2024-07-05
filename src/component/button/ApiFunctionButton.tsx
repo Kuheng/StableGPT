@@ -1,12 +1,10 @@
-import { ReactNode } from "react";
-
 type propsType = {
-  children: ReactNode,
+  functionLabel: string,
 }
 
-function ApiFunctionButton ({children}: propsType) {
+function ApiFunctionButton ({functionLabel}: propsType) {
   return (
-    <button className="w-24 h-20 mt-3 mr-3 border-2 border-gray rounded-md cursor-pointer">{children}</button>
+    <button className="w-24 h-20 mt-3 mr-3 border-2 border-gray rounded-md cursor-pointer">{functionLabel}</button>
   );
 }
 

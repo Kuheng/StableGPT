@@ -1,22 +1,26 @@
 import { ReactNode } from "react";
 import { useSetRecoilState } from "recoil";
 
-import { inputDataSelector, removePromptHistory } from "../../state";
+import { generateImageParameterSelector } from "../../manager/generateImageParameterManager";
+import { removePromptHistory } from "../../manager/promptHistoryStateManager";
 
-import logo from "./../../logo.svg"
+import closeIcon from "./../../image/crossIcon.png";
 
 type propsTypes = {
   children: ReactNode,
 }
 
 function PromptHistoryButton ({children}: propsTypes) {
-  const setInputData = useSetRecoilState(inputDataSelector);
+  const setGenerateImageParameter = useSetRecoilState(generateImageParameterSelector);
   const removePromptHistoryList = useSetRecoilState(removePromptHistory);
+
+  function onClick_History () { setGenerateImageParameter({item: "imagePrompt", value: children}); }
+  function onClick_Remove () { removePromptHistoryList(children); }
 
   return (
     <div className="w-10/12 h-8 mb-7 ml-4 border-b-2 border-b-gray-2">
-      <p className="w-auto h-auto text-md cursor-pointer select-none" onClick={()=>setInputData({item: "imagePrompt", value: children})}>{children}</p>
-      <img src={logo} className="relative w-10 h-10 -top-7 left-56 cursor-pointer select-none" onClick={()=>removePromptHistoryList(children)} alt="" />
+      <p className="w-auto h-auto text-md bg-gray-1 cursor-pointer select-none" onClick={onClick_History}>{children}</p>
+      <img src={closeIcon} className="relative w-8 h-8 -top-7 left-56 cursor-pointer select-none" onClick={onClick_Remove} alt="" />
     </div>
   );
 }

@@ -2,7 +2,8 @@ import { useTranslation } from 'react-i18next';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { IColor } from 'react-color-palette';
 
-import { inputDataSelector, colorPickerState } from '../../state';
+import { generateImageParameterSelector } from '../../manager/generateImageParameterManager';
+import { colorPickerState } from '../../manager/colorPickerStateManager';
 
 type propsTypes = {
   color: IColor
@@ -10,16 +11,16 @@ type propsTypes = {
 
 function ColorPickerSubmitButton ({color}: propsTypes) {
   const { t } = useTranslation();
-  const [inputData, setInputData] = useRecoilState(inputDataSelector);
+  const [generateImageParameter, setGenerateImageParameter] = useRecoilState(generateImageParameterSelector);
   const colorPicker = useRecoilValue(colorPickerState);
 
-  const onClick_submitColor = () => {
-    const value = inputData[colorPicker] + ((inputData[colorPicker].length === 0)?"":",") + color.hex;
-    setInputData({item: colorPicker, value: value});
+  function onClick () {
+    const value = generateImageParameter[colorPicker] + ((generateImageParameter[colorPicker].length === 0)?"":",") + color.hex;
+    setGenerateImageParameter({item: colorPicker, value: value});
   };
 
   return (
-    <button className="w-full border-2 border-gray-2 bg-gray-2 rounded-lg text-lg" onClick={()=>onClick_submitColor()}>{t("main:colorPickerApply")}</button>
+    <button className="w-full border-2 border-gray-2 bg-gray-2 rounded-lg text-lg" onClick={onClick}>{t("main:colorPickerApply")}</button>
   );
 }
 

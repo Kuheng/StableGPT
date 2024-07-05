@@ -4,13 +4,14 @@ import DropdownSelectionInput from "../input/DropdownSelectionInput";
 
 function FormatInputForm () {
   const { t } = useTranslation();
-  const formatList = ["none", "png", "jpg"];
   
   return (
     <div className="text-start w-49% h-auto mx-auto">
       <p className="w-full h-auto text-lg">{t("main:format")}</p>
       <DropdownSelectionInput item="format">
-        {formatList.map(format=>{ return <option value={format}>{format}</option> })}
+        <option value="none">none</option>
+        <option value="png">png</option>
+        <option value="jpg">jpg</option>
       </DropdownSelectionInput>
     </div>
   );

@@ -1,7 +1,7 @@
 import SeedInputForm from "../form/SeedInputForm";
 import FormatInputForm from "../form/FormatInputForm";
-import AspectInputForm from "../form/AspectInputForm";
-import QuantityInputForm from "../form/QuantityInputForm";
+import ResolutionRatioInputForm from "../form/ResolutionRatioInputForm";
+import GenerateQuantityInputForm from "../form/GenerateQuantityInputForm";
 
 function SettingViewer () {
   return (
@@ -9,9 +9,9 @@ function SettingViewer () {
       <SeedInputForm />
       <div className="flex w-full h-auto">
         <FormatInputForm />
-        <AspectInputForm />
+        <ResolutionRatioInputForm />
       </div>
-      <QuantityInputForm />
+      <GenerateQuantityInputForm />
     </div>
   );
 }

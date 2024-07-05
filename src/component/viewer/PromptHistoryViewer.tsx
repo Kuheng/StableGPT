@@ -1,17 +1,17 @@
 import { useRecoilState } from "recoil";
 
-import { clearPromptHistory } from "../../state";
+import { clearPromptHistory } from "../../manager/promptHistoryStateManager";
 
 import PromptHistoryButton from "../button/PromptHistoryButton";
 
-import logo from "./../../logo.svg"
+import deleteAllIcon from "./../../image/deleteAllIcon.png"
 
 function PromptHistoryViewer () {
   const [promptHistoryList, clearPromptHistoryList] = useRecoilState(clearPromptHistory);
   
   return (
     <>
-      <img src={logo} className="w-10 h-10 ml-auto cursor-pointer" onClick={clearPromptHistoryList} alt="" />
+      <img src={deleteAllIcon} className="w-8 h-8 ml-auto mb-2 mr-2 bg-gray-1 cursor-pointer" onClick={clearPromptHistoryList} alt="" />
       {promptHistoryList !== null &&
       promptHistoryList.map((promptHistory:string)=>{ return (<PromptHistoryButton>{promptHistory}</PromptHistoryButton>); })}
     </>
