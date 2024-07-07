@@ -7,8 +7,9 @@
     "promptAlertMessage": "Presentation words are divided by ','",
     "negativePrompt": "Negative Prompt",
     "seedLabel": "Seed",
-    "formatLabel": "Format",
-    "aspectLabel": "Aspect Ratio",
+    "format": "Format",
+    "resolutionRatio": "Resolution Ratio",
     "quantity": "Quantity to be generate",
+    "quantityPlaceholder": "Only numbers greater than 0 can be entered.",
     "generateButton": "Generate"
 }
