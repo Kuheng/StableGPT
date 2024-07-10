@@ -31,6 +31,11 @@ export default {
         1024: "1024px",
       },
 
+      inset: {
+        "40%": "40%",
+        "48%": "48%",
+      },
+
       margin: {
         "200px": "200px",
         "330px": "330px",
@@ -41,7 +46,8 @@ export default {
           DEFAULT: "#222222",
           1: "#e0e0e0",
           2: "#999999",
-        }
+        },
+        modal: "#000000B0"
       },
 
       fontSize: {
