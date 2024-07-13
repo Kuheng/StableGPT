@@ -1,10 +1,10 @@
 import { useRecoilState } from "recoil";
 
-import { clearPromptHistory } from "../../manager/promptHistoryStateManager";
+import { clearPromptHistory } from "../../states/promptHistoryState";
 
 import PromptHistoryButton from "../button/PromptHistoryButton";
 
-import deleteAllIcon from "./../../image/deleteAllIcon.png"
+import deleteAllIcon from "./../../assets/image/deleteAllIcon.png"
 
 function PromptHistoryViewer () {
   const [promptHistoryList, clearPromptHistoryList] = useRecoilState(clearPromptHistory);

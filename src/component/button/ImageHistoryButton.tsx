@@ -1,5 +1,5 @@
 import logo from "./../../logo.svg"
-import closeIcon from "./../../image/crossIcon.png"
+import closeIcon from "./../../assets/image/crossIcon.png"
 
 function ImageHistoryButton () {
   return (

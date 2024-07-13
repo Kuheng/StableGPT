@@ -6,7 +6,7 @@ const languageList = ['ko-KR', 'en-US'];
 function ToggleLocalesButton () {
   const { t, i18n } = useTranslation();
 
-  const onClick = useCallback(() => {
+  const onClickToggleLocales = useCallback(() => {
     const languageIndex = languageList.findIndex(language=>language === i18n.language)+1;
 
     if (languageIndex === languageList.length) i18n.changeLanguage(languageList[0]);
@@ -15,7 +15,7 @@ function ToggleLocalesButton () {
 
   return (
     <div className="group toggle-language">
-      <p className="w-auto h-auto text-xl cursor-pointer select-none" onClick={onClick}>{t("main:languageChangeLabel")}</p>
+      <p className="w-auto h-auto text-xl cursor-pointer select-none" onClick={onClickToggleLocales}>{t("main:languageChangeLabel")}</p>
     </div>
   );
 }

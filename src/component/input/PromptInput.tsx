@@ -1,25 +1,28 @@
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 
-import { generateImageParameterSelector } from "../../manager/generateImageParameterManager";
-import { colorPickerState } from "../../manager/colorPickerStateManager";
+import { generateImageParameterSelector } from "../../states/generateImageParameterState";
+import { colorPickerState } from "../../states/colorPickerState";
 
-import logo from "./../../logo.svg"
+import ColorPickerViewer from './../viewer/ColorPickerViewer';
 
-type propsTypes = {
+import colorPickerIcon from "./../../assets/image/colorPickerIcon.png";
+
+type propsType = {
     item: string,
 } 
 
-function PromptInput ({item}: propsTypes) {
+function PromptInput ({item}: propsType) {
   const [generateImageParameter, setGenerateImageParameter] = useRecoilState(generateImageParameterSelector);
-  const colorPickerStateSet = useSetRecoilState(colorPickerState);
+  const [colorPickerView, setColorPickerState] = useRecoilState(colorPickerState);
 
-  function onClick () { colorPickerStateSet(item); }
-  function onChange (e:any) { setGenerateImageParameter({item: item, value: e.target.value}); }
+  function onClickColorPickerOpen () { setColorPickerState(item); }
+  function onChangePromptInput (e:any) { setGenerateImageParameter({item: item, value: e.target.value}); }
 
   return (
     <>
-      <img src={logo} className="absoulte w-10 h-10 -mt-8 ml-80 cursor-pointer" onClick={onClick} alt="" />
-      <textarea value={generateImageParameter[item]} onChange={onChange}
+      {colorPickerView === item?<ColorPickerViewer />:""}
+      <img src={colorPickerIcon} className="absoulte w-8 h-8 -mt-8 ml-96 cursor-pointer" onClick={onClickColorPickerOpen} alt="" />
+      <textarea value={generateImageParameter[item]} onChange={onChangePromptInput}
                 className="w-calc(-20) h-70px border-2 border-gray-1 rounded-md p-2 text-lg outline-none resize-none" />
     </>
   );
