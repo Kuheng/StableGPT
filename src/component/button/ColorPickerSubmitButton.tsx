@@ -16,7 +16,7 @@ function ColorPickerSubmitButton ({color}: propsType) {
 
   function onClickSubmitColor () {
     const value = generateImageParameter[colorPicker] + ((generateImageParameter[colorPicker].length === 0)?"":",") + color.hex;
-    setGenerateImageParameter({item: colorPicker, value: value});
+    setGenerateImageParameter({key: colorPicker, value: value});
   };
 
   return (

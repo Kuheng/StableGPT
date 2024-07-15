@@ -10,7 +10,7 @@ function ColorPickerViewer () {
 
   return (
     <>
-      <div className="absolute w-auto bottom-10 ml-80 rounded-xl">
+      <div className="absolute w-auto -mt-72 ml-80 rounded-xl">
         <ColorPicker color={color} onChange={setColor} hideAlpha={true} hideInput={["rgb", "hsv"]} />
         <ColorPickerCloseButton />
         <ColorPickerSubmitButton color={color} />

@@ -7,7 +7,7 @@ function ApiKeyInputForm () {
   const { t } = useTranslation();
   const [generateImageParameter, setGenerateImageParameter] = useRecoilState(generateImageParameterSelector);
 
-  function onChangeApiKeyInput (e:any) { setGenerateImageParameter({item: "apiKey", value: e.target.value}); }
+  function onChangeApiKeyInput (e:any) { setGenerateImageParameter({key: "apiKey", value: e.target.value}); }
   
   return (
     <div className="flex items-center w-560 h-12">

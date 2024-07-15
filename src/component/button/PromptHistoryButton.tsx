@@ -14,7 +14,7 @@ function PromptHistoryButton ({children}: propsType) {
   const setGenerateImageParameter = useSetRecoilState(generateImageParameterSelector);
   const removePromptHistoryList = useSetRecoilState(removePromptHistory);
 
-  function onClickHistory () { setGenerateImageParameter({item: "imagePrompt", value: children}); }
+  function onClickHistory () { setGenerateImageParameter({key: "imagePrompt", value: children}); }
   function onClickRemove () { removePromptHistoryList(children); }
 
   return (

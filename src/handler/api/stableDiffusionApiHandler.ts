@@ -61,8 +61,8 @@ interface RequestBody {
 
 class StableDiffusionApiHandler {
     private baseUrl: string = "http://127.0.0.1:7860";
-    private width: number = 1280;
-    private height: number = 720;
+    private width: number = 512;
+    private height: number = 512;
     private imageNum: number = 1;
 
     setImageSize({ width, height }: ImageSize): void {
@@ -87,7 +87,7 @@ class StableDiffusionApiHandler {
             sampler_name: "DPM++ 2M Karras",
             batch_size: num,
             n_iter: 1,
-            steps: 50,
+            steps: 20,
             cfg_scale: 7,
             width: this.width,
             height: this.height,
@@ -104,7 +104,7 @@ class StableDiffusionApiHandler {
             s_noise: 0,
             override_settings: {},
             override_settings_restore_afterwards: true,
-            refiner_checkpoint: "_CHEYENNE_.safetensors",
+            refiner_checkpoint: "v1-5-pruned-emaonly.safetensors",
             refiner_switch_at: 0,
             disable_extra_networks: false,
             firstpass_image: "string",
@@ -117,7 +117,7 @@ class StableDiffusionApiHandler {
             hr_second_pass_steps: 0,
             hr_resize_x: 0,
             hr_resize_y: 0,
-            hr_checkpoint_name: "_CHEYENNE_.safetensors",
+            hr_checkpoint_name: "v1-5-pruned-emaonly.safetensors",
             hr_sampler_name: "string",
             hr_prompt: "",
             hr_negative_prompt: "",
@@ -143,7 +143,7 @@ class StableDiffusionApiHandler {
                 requestBody.sampler_name = samplerName;
 
                 /* get model name to use */
-                const models = await this.getModels() || [];
+                 const models = await this.getModels() || [];
                 if (models.length === 0) {
                     reject("StableDiffusionApiHandler::postTextToImage - Error: Model doesn't exist in Stable Diffusion");
                 }

@@ -18,7 +18,7 @@ function ResolutionRatioInputForm () {
   return (
     <div className="text-start w-49% h-auto mx-auto">
       <p className="w-full h-auto text-lg">{t("main:resolutionRatio")}</p>
-      <DropdownSelectionInput item="resolutionRatio">
+      <DropdownSelectionInput parameterKey="resolutionRatio">
         {resolutionRatioList}
       </DropdownSelectionInput>
     </div>

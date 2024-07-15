@@ -29,7 +29,7 @@ export const generateImageParameterSelector = selector({
   get: ({ get }) => { return get(generateImageParameter); },
   set: ({ set, get }, data:any) => {
     let tempData = {...get(generateImageParameter)};
-    tempData[data.item] = data.value;
+    tempData[data.key] = data.value;
 
     set(generateImageParameter, tempData);
   },

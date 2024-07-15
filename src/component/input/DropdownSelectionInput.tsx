@@ -6,16 +6,16 @@ import { generateImageParameterSelector } from "../../states/generateImageParame
 
 type propsType = {
   children: ReactNode,
-  item: string,
+  parameterKey: string,
 }
 
-function DropdownSelectionInput ({children, item}: propsType) {
+function DropdownSelectionInput ({children, parameterKey}: propsType) {
   const [generateImageParameter, setGenerateImageParameter] = useRecoilState(generateImageParameterSelector);
 
-  function onChangeSelect (e:any) { setGenerateImageParameter({item: item, value: e.target.value}); }
+  function onChangeSelect (e:any) { setGenerateImageParameter({key: parameterKey, value: e.target.value}); }
 
   return (
-    <select className="w-full h-9 border-b-2 border-gray-2 text-lg outline-none" value={generateImageParameter[item]} onChange={onChangeSelect}>
+    <select className="w-full h-9 border-b-2 border-gray-2 text-lg outline-none" value={generateImageParameter[parameterKey]} onChange={onChangeSelect}>
       {children}
     </select>);
 };

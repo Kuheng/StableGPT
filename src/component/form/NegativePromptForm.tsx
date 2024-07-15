@@ -8,7 +8,7 @@ function NegativePromptForm () {
   return (
     <>
       <p className="w-full h-auto text-lg">{t("main:negativePrompt")}</p>
-      <PromptInput item="negativePrompt" />
+      <PromptInput parameterKey="negativePrompt" />
     </>
   );
 }

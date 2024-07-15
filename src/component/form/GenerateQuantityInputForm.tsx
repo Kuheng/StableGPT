@@ -11,7 +11,7 @@ function GenerateQuantityInputForm () {
     let changeValue = e.target.value;
     if (changeValue < 0 || changeValue === null) changeValue = 0;
 
-    setGenerateImageParameter({item: "quantity", value: changeValue})
+    setGenerateImageParameter({key: "quantity", value: changeValue})
   }
 
   return (
