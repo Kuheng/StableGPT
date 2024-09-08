@@ -6,7 +6,7 @@ type Props = {
 
 function LoadingSpinner(props : Props = { children : "Loading..."}) {
     return (
-        <div className="fixed top-40% left-48%">
+        <div className="fixed flex top-40% left-20% justify-center content-center z-20">
             <span>{props.children} </span>
             <div role="status" className="inline-block align-middle">
                 <svg aria-hidden="true" className="w-52 h-52 text-gray-200 animate-spin dark:text-gray-400 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">

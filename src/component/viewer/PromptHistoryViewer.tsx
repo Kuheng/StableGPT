@@ -12,11 +12,11 @@ function PromptHistoryViewer () {
   function onClickClearHistory () { clearPromptHistoryList(''); }
   
   return (
-    <>
-      <img src={deleteAllIcon} className="w-8 h-8 ml-auto mb-2 mr-2 bg-gray-1 cursor-pointer" onClick={onClickClearHistory} alt="" />
+    <div className="absolute w-300 h-auto max-h-640px bottom-18px -left-72 pt-11 border-1 border-gray-1 bg-white overflow-x-hidden overflow-y-scroll">
+      <img src={deleteAllIcon} className="absolute w-8 h-8 top-1 right-1 bg-gray-1 cursor-pointer" onClick={onClickClearHistory} alt="" />
       {promptHistoryList !== null &&
       promptHistoryList.map((promptHistory:string)=>{ return (<PromptHistoryButton>{promptHistory}</PromptHistoryButton>); })}
-    </>
+    </div>
   );
 }
 

@@ -6,7 +6,7 @@ function FormatInputForm () {
   const { t } = useTranslation();
   
   return (
-    <div className="text-start w-49% h-auto mx-auto">
+    <div className="text-start w-full h-auto mx-auto">
       <p className="w-full h-auto text-lg">{t("main:format")}</p>
       <DropdownSelectionInput parameterKey="format">
         <option value="none">none</option>

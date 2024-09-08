@@ -5,13 +5,19 @@ export const promptHistoryState = atom({
   default: (localStorage.length !== 0)?JSON.parse(localStorage.PROMPT_HISTORY):[],
 })
 
+export const getPromptHistory = selector({
+  key: 'getPromptHistory',
+  get: ({ get }) => { return get(promptHistoryState); }
+})
+
 export const addPromptHistory = selector({
   key: 'addPromptHistory',
   get: ({ get }) => { return get(promptHistoryState); },
   set: ({ set, get }, data:any) => {
     let changeHistory;
 
-    if (get(promptHistoryState).length !== 0) changeHistory = [...get(promptHistoryState), data];
+    if (get(promptHistoryState).includes(data)) changeHistory = get(promptHistoryState);
+    else if (get(promptHistoryState).length !== 0) changeHistory = [...get(promptHistoryState), data];
     else changeHistory = [data];
 
     localStorage.setItem("PROMPT_HISTORY", JSON.stringify(changeHistory));

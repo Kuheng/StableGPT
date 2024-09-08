@@ -1,19 +1,19 @@
 import { useTranslation } from "react-i18next";
 import { useRecoilState } from "recoil";
 
-import { generateImageParameterSelector } from "../../states/generateImageParameterState";
+import { setChatGPTAPIKeySelector } from "../../states/postChatGPTParameterState";
 
 function ApiKeyInputForm () {
   const { t } = useTranslation();
-  const [generateImageParameter, setGenerateImageParameter] = useRecoilState(generateImageParameterSelector);
+  const [getChatGPTAPIKey, setChatGPTAPIKey] = useRecoilState(setChatGPTAPIKeySelector);
 
-  function onChangeApiKeyInput (e:any) { setGenerateImageParameter({key: "apiKey", value: e.target.value}); }
+  function onChangeApiKeyInput (e:any) { setChatGPTAPIKey(e.target.value); }
   
   return (
-    <div className="flex items-center w-560 h-12">
-      <p className="text-center w-24 h-auto text-xl">{t("main:apiKey")}</p>
-      <input type="text" value={generateImageParameter.apiKey} onChange={onChangeApiKeyInput}
-             className="w-440 h-11 pl-1 border-b-2 border-b-black text-lg outline-none" placeholder={"* " + t("main:apiKeyInputPlaceholder")} />
+    <div className="px-10px pb-10px items-center w-full h-auto">
+      <p className="w-full h-auto text-lg">{t("main:apiKey")}</p>
+      <input type="text" value={getChatGPTAPIKey} onChange={onChangeApiKeyInput}
+             className="w-full h-11 pl-1 border-b-2 border-b-black text-lg outline-none" placeholder={"* " + t("main:apiKeyInputPlaceholder")} />
     </div>
   );
 }

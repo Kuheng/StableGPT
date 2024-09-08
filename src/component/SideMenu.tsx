@@ -8,7 +8,7 @@ function SideMenu () {
         <ApiFunctionViewer />
       </div>
       <div className="w-11/12 h-3 ml-3 border-t-2 border-t-black" />
-      <div className="text-startw-full h-auto">
+      <div className="text-start w-full h-640px overflow-y-auto">
         <PromptHistoryViewer />
       </div>
     </div>

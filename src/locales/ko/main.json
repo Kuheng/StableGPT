@@ -1,5 +1,5 @@
 {
-    "apiKey": "API 키",
+    "apiKey": "Chat GPT API 키",
     "apiKeyInputPlaceholder": "API 키 입력 필수",
     "languageChangeLabel": "가",
     "colorPickerApply": "적용",
@@ -11,5 +11,27 @@
     "resolutionRatio": "비율 사이즈",
     "quantity": "생성될 수량",
     "quantityPlaceholder": "0 이상의 숫자만 입력 가능합니다.",
-    "generateButton": "실행"
+    "generateButton": "실행",
+    "yes": "예",
+    "cancel": "취소",
+
+    "generatedImage": "생성된 이미지",
+    "generatedImageOptionTitle": "이미지 저장 옵션",
+    "saveImage": "이미지 저장",
+
+    "generatedImageHistory": "생성 이미지 기록",
+    "generatedImageHistoryOptionTitle": "이미지 기록 옵션",
+    "generatedImageHistoryRemoveAll": "이미지 기록 전체 삭제",
+    "generatedImageHistoryRemoveAllAlert1": "삭제된 이미지 기록은 복구되지 않습니다.",
+    "generatedImageHistoryRemoveAllAlert2": "삭제하시겠습니까?",
+
+    "imageGeneratePrompt": "이미지 생성 프롬프트",
+    "promptOptionTitle": "프롬포트 설정",
+    "promptHistory": "프롬프트 입력 기록",
+    
+    "chatGPT": "ChatGPT",
+    "chatGPTOPtionTitle": "ChatGPT 설정",
+    "chatGPTInputAlertPopup": "ChatGPT 기능의 경우 API키를 입력해야 사용이 가능합니다.",
+    "chatGPTGetLink": "ChatGPT API 키 획득 링크",
+    "chatGPTSave": "API 키 저장"
 }

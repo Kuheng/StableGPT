@@ -2,7 +2,6 @@ import { atom, selector } from "recoil";
 
 interface IGenerateImageParameter {
   [index:string]:string|number|any,
-  apiKey: string,
   imagePrompt: string,
   negativePrompt: string,
   seed: number,
@@ -14,7 +13,6 @@ interface IGenerateImageParameter {
 const generateImageParameter = atom<IGenerateImageParameter>({
   key: 'generateImageParameter',
   default: {
-    apiKey: "",
     imagePrompt: "",
     negativePrompt: "",
     seed: -1,

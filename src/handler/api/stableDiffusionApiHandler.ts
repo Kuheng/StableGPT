@@ -143,7 +143,7 @@ class StableDiffusionApiHandler {
                 requestBody.sampler_name = samplerName;
 
                 /* get model name to use */
-                 const models = await this.getModels() || [];
+                const models = await this.getModels() || [];
                 if (models.length === 0) {
                     reject("StableDiffusionApiHandler::postTextToImage - Error: Model doesn't exist in Stable Diffusion");
                 }

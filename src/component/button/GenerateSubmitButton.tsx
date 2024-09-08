@@ -31,7 +31,7 @@ function GenerateSubmitButton () {
         const imgDataArr:Array<any> = data.images || [];
         let base64EncodedImage = (imgDataArr.length===0)?"":"data:image/png;base64,"+imgDataArr[0];
         console.log("GenerateSubmitButton::onClickSubmitGenerate - base64", base64EncodedImage);
-        setGeneratedImage({item: "base64", value: base64EncodedImage});
+        setGeneratedImage(base64EncodedImage);
       }).catch(error => {
         console.error("GenerateSubmitButton::onClickSubmitGenerate - error", error);
       }).then(()=>{
@@ -41,8 +41,12 @@ function GenerateSubmitButton () {
   }
 
   return (
-    <button onClick={onClickSubmitGenerate}
-            className="w-300 h-auto border-2 border-gray-1 rounded-sm bg-primary-1 text-xl cursor-pointer select-none">{t("main:generateButton")}</button>
+    <>{generateImageParameter.imagePrompt.length !== 0?
+        <button onClick={onClickSubmitGenerate} className="w-150px h-auto border-2 border-blue-1 rounded-15px bg-blue-1 text-white text-xl cursor-pointer select-none
+          active:border-blue-2 active:bg-blue-2">
+          {t("main:generateButton")}</button>
+        :<button className="w-150px h-auto border-2 border-gray-5 rounded-15px bg-gray-6 text-gray-3 text-xl cursor-not-allowed select-none">
+          {t("main:generateButton")}</button>}</>
   );
 }
 
