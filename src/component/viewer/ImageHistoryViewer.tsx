@@ -6,26 +6,28 @@ import { toggleGenerateImageHistoryOptionViewState } from "../../states/viewOpti
 
 import ModuleFrameViewer from "./ModuleFrameVewer";
 
+import ViewerOptionButton from "../button/ViewOptionButton";
 import ImageHistoryButton from "../button/ImageHistoryButton";
 import ImageHistoryRemoveAllButton from "../button/ImageHistoryRemoveAllButton";
 
 function ImageHistoryViewer () {
-  const getGenerateImageHistory = useRecoilValue(getGenerateImage).imageHistory;
-  const [toggleGenerateImageHistoryView, setToggleGenerateImageHistoryView] = useRecoilState(toggleGenerateImageHistoryOptionViewState);
+  const generateImageHistory = useRecoilValue(getGenerateImage).imageHistory;
+  const [bIsGenerateImageHistoryOptionView, setToggleGenerateImageHistoryOptionView] = useRecoilState(toggleGenerateImageHistoryOptionViewState);
 
   const { t } = useTranslation();
 
-  function onClickGenerateImageHistoryOption () { setToggleGenerateImageHistoryView(true); }
+  function onClickGenerateImageHistoryOption () { setToggleGenerateImageHistoryOptionView(true); }
 
   return (
-    <ModuleFrameViewer frameTitle={t("main:generatedImageHistory")} optionTitle={t("main:generatedImageHistoryOptionTitle")}
-      viewState={toggleGenerateImageHistoryView} onClick={onClickGenerateImageHistoryOption}
-      height={"300px"} padding={"30px"}>
-      {[<ImageHistoryRemoveAllButton />,
-        <div className="flex w-full h-auto overflow-x-scroll overflow-y-hidden">
-          {getGenerateImageHistory.map((generateImageHistory, index)=>{
-            return <ImageHistoryButton index={index}>{generateImageHistory}</ImageHistoryButton>
-        })}</div>]}
+    <ModuleFrameViewer frameTitle={t("main:generatedImageHistory")} height={"300px"} padding={"30px"}>
+      <ViewerOptionButton optionTitle={t("main:generatedImageHistoryOptionTitle")} viewState={bIsGenerateImageHistoryOptionView} onClick={onClickGenerateImageHistoryOption}>
+        <ImageHistoryRemoveAllButton />
+      </ViewerOptionButton>
+      <div className="flex w-full h-auto overflow-x-scroll overflow-y-hidden">
+        {generateImageHistory.map((generateImageHistory, index)=>{
+          return <ImageHistoryButton index={index}>{generateImageHistory}</ImageHistoryButton>
+        })}
+      </div>
     </ModuleFrameViewer>
   );
 }

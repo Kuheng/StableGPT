@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { IColor } from 'react-color-palette';
 
-import { generateImageParameterSelector } from '../../states/generateImageParameterState';
+import { stableDiffusionParameterSelector } from '../../states/stableDiffusionParameterState';
 import { colorPickerState } from '../../states/colorPickerState';
 
 type propsType = {
@@ -11,12 +11,12 @@ type propsType = {
 
 function ColorPickerSubmitButton ({color}: propsType) {
   const { t } = useTranslation();
-  const [generateImageParameter, setGenerateImageParameter] = useRecoilState(generateImageParameterSelector);
+  const [stableDiffusionParameter, setStableDiffusionParameter] = useRecoilState(stableDiffusionParameterSelector);
   const colorPicker = useRecoilValue(colorPickerState);
 
   function onClickSubmitColor () {
-    const value = generateImageParameter[colorPicker] + ((generateImageParameter[colorPicker].length === 0)?"":",") + color.hex;
-    setGenerateImageParameter({key: colorPicker, value: value});
+    const value = stableDiffusionParameter[colorPicker] + ((stableDiffusionParameter[colorPicker].length === 0)?"":",") + color.hex;
+    setStableDiffusionParameter({key: colorPicker, value: value});
   };
 
   return (

@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { useSetRecoilState } from "recoil";
 
-import { generateImageParameterSelector } from "../../states/generateImageParameterState";
+import { stableDiffusionParameterSelector } from "../../states/stableDiffusionParameterState";
 import { removePromptHistory } from "../../states/promptHistoryState";
 
 import closeIcon from "./../../assets/image/crossIcon.png"
@@ -11,10 +11,10 @@ type propsType = {
 }
 
 function PromptHistoryButton ({children}: propsType) {
-  const setGenerateImageParameter = useSetRecoilState(generateImageParameterSelector);
+  const setStableDiffusionParameter = useSetRecoilState(stableDiffusionParameterSelector);
   const removePromptHistoryList = useSetRecoilState(removePromptHistory);
 
-  function onClickHistory () { setGenerateImageParameter({key: "imagePrompt", value: children}); }
+  function onClickHistory () { setStableDiffusionParameter({key: "imagePrompt", value: children}); }
   function onClickRemove () { removePromptHistoryList(children); }
 
   return (

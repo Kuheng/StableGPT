@@ -5,27 +5,27 @@ import { removeAllGenerateImageHistory } from "../../states/generatedImageState"
 import { setRemoveImageHistoryConfirmPopupViewState } from "../../states/popupViewState";
 
 function ImageHistoryRemoveAllButton () {
-  const [removeConfirmPopupViewState, setRemoveConfirmPopupView] = useRecoilState(setRemoveImageHistoryConfirmPopupViewState);
-  const [getImageHistory, removeAllImageHistory] = useRecoilState(removeAllGenerateImageHistory);
+  const [bIsConfirmPopupView, setConfirmPopupView] = useRecoilState(setRemoveImageHistoryConfirmPopupViewState);
+  const [generatedImageHistory, removeAllImageHistory] = useRecoilState(removeAllGenerateImageHistory);
 
   const { t } = useTranslation();
 
-  function onClickRemoveAllImageHistoryButton () { setRemoveConfirmPopupView(true); }
+  function onClickRemoveAllImageHistoryButton () { setConfirmPopupView(true); }
   function onClickConfirmRemoveImageHistoryButton () {
-    setRemoveConfirmPopupView(false);
+    setConfirmPopupView(false);
     removeAllImageHistory(true);
   }
-  function onClickCancelRemoveImageHistoryButton () { setRemoveConfirmPopupView(false); }
+  function onClickCancelRemoveImageHistoryButton () { setConfirmPopupView(false); }
 
   return (
     <div className="relative w-full h-auto pb-5px">
-        {getImageHistory.imageHistory.length === 0?
+        {generatedImageHistory.imageHistory.length === 0?
         <button className="w-full h-auto border-1 border-gray-5 rounded-2px bg-gray-6 text-gray-3 text-lg cursor-not-allowed">
           {t("main:generatedImageHistoryRemoveAll")}</button>
         :<button className="w-full h-auto border-1 border-blue-1 rounded-2px bg-blue-1 text-white text-lg cursor-pointer active:border-blue-2 active:bg-blue-2"
           onClick={onClickRemoveAllImageHistoryButton}>
           {t("main:generatedImageHistoryRemoveAll")}</button>}
-        {removeConfirmPopupViewState?
+        {bIsConfirmPopupView?
         <div className="absolute w-300px h-auto -top-10 -left-16 p-5px pt-4 pb-3 text-center border-1 border-gray-3 rounded-5px bg-white">
           <p className="text-lg">{t("main:generatedImageHistoryRemoveAllAlert1")}</p>
           <p className="mb-5 text-lg">{t("main:generatedImageHistoryRemoveAllAlert2")}</p>

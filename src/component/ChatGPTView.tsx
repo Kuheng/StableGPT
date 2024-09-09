@@ -7,29 +7,32 @@ import { getChatGPTAPIKeyLengthSelector } from "../states/postChatGPTParameterSt
 import ModuleFrameViewer from "./viewer/ModuleFrameVewer";
 
 import ApiKeyInputForm from "./form/ApiKeyInputForm";
+import ViewerOptionButton from "./button/ViewOptionButton";
+
 import ChatGPTChatingLogViewer from "./viewer/ChatGPTChatingLogViewer";
 import ChatGPTPromptViewer from "./viewer/ChatGPTPromptViewer";
 import ChatGPTApiKeyNullAlertViewer from "./viewer/ChatGPTApiKeyNullAlertViewer";
 
 function ChatGPTView () {
-  const [toggleChatGPTOptionView, setToggleChatGPTOptionView] = useRecoilState(toggleChatGPTOptionViewState);
-  const getChatGPTAPIKeyLength = useRecoilValue(getChatGPTAPIKeyLengthSelector);
+  const [bIsChatGptOptionView, setToggleChatGptOptionView] = useRecoilState(toggleChatGPTOptionViewState);
+  const chatGptApiKeyLength = useRecoilValue(getChatGPTAPIKeyLengthSelector);
 
   const { t } = useTranslation();
 
-  function onClickChatGPTOption () { setToggleChatGPTOptionView(true); }
+  function onClickChatGPTOption () { setToggleChatGptOptionView(true); }
 
   return (
     <div className="relative w-50% h-calc(-20) px-15px bg-white">
-      <ModuleFrameViewer frameTitle={t("main:chatGPT")} optionTitle={t("main:chatGPTOPtionTitle")} viewState={toggleChatGPTOptionView} onClick={onClickChatGPTOption}
-        justify={"center"} height={"1210px"}>
-        {[<ApiKeyInputForm />,
+      <ModuleFrameViewer frameTitle={t("main:chatGPT")} justify={"center"} height={"1210px"}>
+        <ViewerOptionButton optionTitle={t("main:chatGPTOPtionTitle")} viewState={bIsChatGptOptionView} onClick={onClickChatGPTOption}>
+          <ApiKeyInputForm />
+        </ViewerOptionButton>
         <div className="relative w-full h-calc(-40px) top-40px">
           <ChatGPTChatingLogViewer />
           <ChatGPTPromptViewer />
-        </div>]}
+        </div>
       </ModuleFrameViewer>
-      {getChatGPTAPIKeyLength === 0?<ChatGPTApiKeyNullAlertViewer />:''}
+      {chatGptApiKeyLength === 0?<ChatGPTApiKeyNullAlertViewer />:''}
     </div>
   );
 }

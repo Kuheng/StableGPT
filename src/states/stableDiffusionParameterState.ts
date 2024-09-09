@@ -1,6 +1,6 @@
 import { atom, selector } from "recoil";
 
-interface IGenerateImageParameter {
+interface IStableDiffusionParameter {
   [index:string]:string|number|any,
   imagePrompt: string,
   negativePrompt: string,
@@ -10,8 +10,8 @@ interface IGenerateImageParameter {
   quantity: number,
 };
 
-const generateImageParameter = atom<IGenerateImageParameter>({
-  key: 'generateImageParameter',
+const stableDiffusionParameter = atom<IStableDiffusionParameter>({
+  key: 'stableDiffusionParameter',
   default: {
     imagePrompt: "",
     negativePrompt: "",
@@ -22,13 +22,13 @@ const generateImageParameter = atom<IGenerateImageParameter>({
   }
 });
 
-export const generateImageParameterSelector = selector({
-  key: 'generateImageParameterChange',
-  get: ({ get }) => { return get(generateImageParameter); },
+export const stableDiffusionParameterSelector = selector({
+  key: 'stableDiffusionParameterSelector',
+  get: ({ get }) => { return get(stableDiffusionParameter); },
   set: ({ set, get }, data:any) => {
-    let tempData = {...get(generateImageParameter)};
+    let tempData = {...get(stableDiffusionParameter)};
     tempData[data.key] = data.value;
 
-    set(generateImageParameter, tempData);
+    set(stableDiffusionParameter, tempData);
   },
 });

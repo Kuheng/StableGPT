@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 import { useRecoilState } from "recoil";
 
-import { generateImageParameterSelector } from "../../states/generateImageParameterState";
+import { stableDiffusionParameterSelector } from "../../states/stableDiffusionParameterState";
 
 type propsType = {
   children: ReactNode,
@@ -10,12 +10,12 @@ type propsType = {
 }
 
 function DropdownSelectionInput ({children, parameterKey}: propsType) {
-  const [generateImageParameter, setGenerateImageParameter] = useRecoilState(generateImageParameterSelector);
+  const [stableDiffusionParameter, setStableDiffusionParameter] = useRecoilState(stableDiffusionParameterSelector);
 
-  function onChangeSelect (e:any) { setGenerateImageParameter({key: parameterKey, value: e.target.value}); }
+  function onChangeSelect (e:any) { setStableDiffusionParameter({key: parameterKey, value: e.target.value}); }
 
   return (
-    <select className="w-full h-9 mb-2 border-b-2 border-gray-2 text-lg outline-none" value={generateImageParameter[parameterKey]} onChange={onChangeSelect}>
+    <select className="w-full h-9 mb-2 border-b-2 border-gray-2 text-lg outline-none" value={stableDiffusionParameter[parameterKey]} onChange={onChangeSelect}>
       {children}
     </select>);
 };

@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 
-import { generateImageParameterSelector } from "../../states/generateImageParameterState";
+import { stableDiffusionParameterSelector } from "../../states/stableDiffusionParameterState";
 import { addPromptHistory } from "../../states/promptHistoryState";
 import { setGenerateLoadingState } from "../../states/generateLoadingState";
 import { generatedImageSelector } from "../../states/generatedImageState";
@@ -11,20 +11,20 @@ import generateImageHandler from "../../handler/generateImageHandler";
 
 function GenerateSubmitButton () {
   const { t } = useTranslation();
-  const generateImageParameter = useRecoilValue(generateImageParameterSelector);
+  const stableDiffusionParameter = useRecoilValue(stableDiffusionParameterSelector);
   const addPromptHistoryList = useSetRecoilState(addPromptHistory);
   const setLoadingState = useSetRecoilState(setGenerateLoadingState);
   const setGeneratedImage = useSetRecoilState(generatedImageSelector);
 
   function onClickSubmitGenerate () {
-    stableDiffusionApiHandler.setImageNum(generateImageParameter.quantity);
-    console.log(stableDiffusionApiHandler.postTextToImage(generateImageParameter.imagePrompt));
-    addPromptHistoryList(generateImageParameter.imagePrompt);
+    stableDiffusionApiHandler.setImageNum(stableDiffusionParameter.quantity);
+    console.log(stableDiffusionApiHandler.postTextToImage(stableDiffusionParameter.imagePrompt));
+    addPromptHistoryList(stableDiffusionParameter.imagePrompt);
     setLoadingState(true);
 
     //Todo : switch stableDiffusion and dallE
     generateImageHandler.stableDiffusion
-      .generate(generateImageParameter.imagePrompt)
+      .generate(stableDiffusionParameter.imagePrompt)
       .then(data=>{
         //TODO : Start Loading
 
@@ -41,7 +41,7 @@ function GenerateSubmitButton () {
   }
 
   return (
-    <>{generateImageParameter.imagePrompt.length !== 0?
+    <>{stableDiffusionParameter.imagePrompt.length !== 0?
         <button onClick={onClickSubmitGenerate} className="w-150px h-auto border-2 border-blue-1 rounded-15px bg-blue-1 text-white text-xl cursor-pointer select-none
           active:border-blue-2 active:bg-blue-2">
           {t("main:generateButton")}</button>
