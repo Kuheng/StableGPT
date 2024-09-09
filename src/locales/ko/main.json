@@ -18,6 +18,7 @@
     "generatedImage": "생성된 이미지",
     "generatedImageOptionTitle": "이미지 저장 옵션",
     "saveImage": "이미지 저장",
+    "saveImageName": "Stable GPT 이미지.",
 
     "generatedImageHistory": "생성 이미지 기록",
     "generatedImageHistoryOptionTitle": "이미지 기록 옵션",
