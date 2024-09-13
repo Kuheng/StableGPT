@@ -15,9 +15,9 @@ function GeneratedImageSaveButton () {
   return (
     <>{generatedImage !== logo?<button className="w-full h-10 mb-2 border-1 rounded-5px border-blue-1 bg-blue-1 text-white
       active:border-blue-2  active:bg-blue-2 text-lg font-semibold cursor-pointer">
-        <a href={generatedImage} download={t("main:saveImageName")+stableDiffusionParameter.format}>{t("main:saveImage")}</a></button>
+        <a href={generatedImage} download={t("generatedImage:saveImageName")+stableDiffusionParameter.format}>{t("generatedImage:saveImage")}</a></button>
     :<button className="w-full h-10 mb-2 border-1 border-gray-5 rounded-5px bg-gray-6 text-gray-3 text-lg font-semibold cursor-not-allowed">
-    {t("main:saveImage")}</button>}</>
+    {t("generatedImage:saveImage")}</button>}</>
   );
 }
 

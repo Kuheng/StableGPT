@@ -23,8 +23,8 @@ function ChatGPTView () {
 
   return (
     <div className="relative w-50% h-calc(-20) px-15px bg-white">
-      <ModuleFrameViewer frameTitle={t("main:chatGPT")} justify={"center"} height={"1210px"}>
-        <ViewerOptionButton optionTitle={t("main:chatGPTOPtionTitle")} viewState={bIsChatGptOptionView} onClick={onClickChatGPTOption}>
+      <ModuleFrameViewer frameTitle={t("chatGpt:chatGPT")} justify={"center"} height={"1210px"}>
+        <ViewerOptionButton optionTitle={t("chatGpt:chatGPTOPtionTitle")} viewState={bIsChatGptOptionView} onClick={onClickChatGPTOption}>
           <ApiKeyInputForm />
         </ViewerOptionButton>
         <div className="relative w-full h-calc(-40px) top-40px">

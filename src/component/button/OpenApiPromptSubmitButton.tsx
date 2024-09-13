@@ -1,18 +1,19 @@
 import { useRecoilValue, useRecoilState } from "recoil";
 
-import { getChatGPTAPIKeySelector, setChatGPTPromptMessageSelector } from "../../states/postChatGPTParameterState";
+import { setChatGPTAPIKeySelector, setChatGPTPromptMessageSelector } from "../../states/postChatGPTParameterState";
 
 import openAiApiHandler from "../../handler/api/openAiApiHandler";
 
 import whiteArrow from "./../../assets/image/whiteArrow.png"
 
 function OpenApiPromptSubmitButton () {
-  const chatGPTApiKey = useRecoilValue(getChatGPTAPIKeySelector);
+  const chatGPTApiKey = useRecoilValue(setChatGPTAPIKeySelector);
   const [getChatGPTPromptMessage, setChatGPTPromptMessage] = useRecoilState(setChatGPTPromptMessageSelector);
 
   function onClickSubmitGPTPrompt () {
     setChatGPTPromptMessage('');
     openAiApiHandler.setApiKey(chatGPTApiKey);
+
     console.log(openAiApiHandler.postTextChat(getChatGPTPromptMessage));
   }
 

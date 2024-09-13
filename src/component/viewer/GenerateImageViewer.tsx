@@ -21,8 +21,8 @@ function GenerateImageViewer () {
   function onClickGenerateImageOption () { setToggleGenerateImageOptionView(true); }
   
   return (
-    <ModuleFrameViewer frameTitle={t("main:generatedImage")} justify="center" height={"600px"} padding={"20px"}>
-      <ViewerOptionButton optionTitle={t("main:generatedImageOptionTitle")} viewState={bIsGenerateImageOptionView} onClick={onClickGenerateImageOption}>
+    <ModuleFrameViewer frameTitle={t("generatedImage:generatedImage")} justify="center" height={"600px"} padding={"20px"}>
+      <ViewerOptionButton optionTitle={t("generatedImage:generatedImageOptionTitle")} viewState={bIsGenerateImageOptionView} onClick={onClickGenerateImageOption}>
         <FormatInputForm />
         <ResolutionRatioInputForm />
         <GeneratedImageSaveButton />

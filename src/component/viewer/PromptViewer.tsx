@@ -8,7 +8,7 @@ function PromptViewer () {
 
   return (
     <div className="w-calc(-20) h-full">
-      <span className="absolute w-auto h-auto mt-1 ml-36 text-sm text-gray-2">{t("main:promptAlertMessage")}</span>
+      <span className="absolute w-auto h-auto mt-1 ml-36 text-sm text-gray-2">{t("prompt:promptAlertMessage")}</span>
       <ImagePromptForm />
       <NegativePromptForm />
     </div>

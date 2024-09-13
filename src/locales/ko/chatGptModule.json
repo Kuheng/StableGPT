@@ -1,0 +1,9 @@
+{
+    "chatGPT": "ChatGPT",
+    "chatGPTOPtionTitle": "ChatGPT 설정",
+    "apiKey": "Chat GPT API 키",
+    "apiKeyInputPlaceholder": "API 키 입력 필수",
+    "chatGPTInputAlertPopup": "ChatGPT 기능의 경우 API키를 입력해야 사용이 가능합니다.",
+    "chatGPTGetLink": "ChatGPT API 키 획득 링크",
+    "chatGPTSave": "API 키 저장"
+}

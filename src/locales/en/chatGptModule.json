@@ -1,0 +1,9 @@
+{
+    "chatGPT": "ChatGPT",
+    "chatGPTOPtionTitle": "ChatGPT Option",
+    "apiKey": "Chat GPT API Key",
+    "apiKeyInputPlaceholder": "Required input",
+    "chatGPTInputAlertPopup": "ChatGPT requires an API key to be used.",
+    "chatGPTGetLink": "ChatGPT API Key Link",
+    "chatGPTSave": "Save API Key"
+}

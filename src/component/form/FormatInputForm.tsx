@@ -7,7 +7,7 @@ function FormatInputForm () {
   
   return (
     <div className="text-start w-full h-auto mx-auto">
-      <p className="w-full h-auto text-lg">{t("main:format")}</p>
+      <p className="w-full h-auto text-lg">{t("generatedImage:format")}</p>
       <DropdownSelectionInput parameterKey="format">
         <option value="none">none</option>
         <option value="png">png</option>

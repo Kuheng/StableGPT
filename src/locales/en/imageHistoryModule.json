@@ -1,0 +1,7 @@
+{
+    "generatedImageHistory": "Generated Image History",
+    "generatedImageHistoryOptionTitle": "Image History Option",
+    "generatedImageHistoryRemoveAll": "Image History Remove All",
+    "generatedImageHistoryRemoveAllAlert1": "Deleted image records cannot be recovered.",
+    "generatedImageHistoryRemoveAllAlert2": "Are you sure you want to delete them?"
+}

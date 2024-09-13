@@ -20,7 +20,7 @@ function ColorPickerSubmitButton ({color}: propsType) {
   };
 
   return (
-    <button className="w-full border-2 border-gray-2 bg-gray-2 rounded-lg text-lg" onClick={onClickSubmitColor}>{t("main:colorPickerApply")}</button>
+    <button className="w-full border-2 border-gray-2 bg-gray-2 rounded-lg text-lg" onClick={onClickSubmitColor}>{t("main:apply")}</button>
   );
 }
 

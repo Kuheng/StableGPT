@@ -19,7 +19,7 @@ function SeedInputForm () {
 
   return (
     <div className="w-full h-18 text-start mb-2">
-      <p className="w-full h-auto text-lg">{t("main:seedLabel")}</p>
+      <p className="w-full h-auto text-lg">{t("prompt:seedLabel")}</p>
       <input type="number" value={stableDiffusionParameter["seed"]} onChange={onChangeSeedInput} min={-1} max={4294967294}
              className="w-full h-full border-b-1 border-black text-center text-md font-bold outline-none" />
     </div>

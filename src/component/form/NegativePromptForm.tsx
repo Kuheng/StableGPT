@@ -7,7 +7,7 @@ function NegativePromptForm () {
 
   return (
     <>
-      <p className="w-full h-auto text-lg">{t("main:negativePrompt")}</p>
+      <p className="w-full h-auto text-lg">{t("prompt:negativePrompt")}</p>
       <PromptInput parameterKey="negativePrompt" />
     </>
   );

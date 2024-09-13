@@ -1,0 +1,9 @@
+{
+    "imageGeneratePrompt": "Image Generate Prompt",
+    "imagePrompt": "Image Prompt",
+    "promptAlertMessage": "Presentation words are divided by ','",
+    "negativePrompt": "Negative Prompt",
+    "promptOptionTitle": "Prompt Option",
+    "seedLabel": "Seed",
+    "promptHistory": "Prompt Input History"
+}
