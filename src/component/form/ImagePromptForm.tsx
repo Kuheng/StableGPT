@@ -7,7 +7,7 @@ function ImagePromptForm () {
 
   return (
     <>
-      <p className="w-full h-auto text-lg">{t("prompt:imagePrompt")}</p>
+      <p className="w-full h-auto text-lg dark:text-darkMode-POINT">{t("prompt:imagePrompt")}</p>
       <PromptInput parameterKey="imagePrompt" />
     </>
   );

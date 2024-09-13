@@ -59,6 +59,8 @@ export default {
         "calc(-100px)": "calc(100% - 100px)",
         "calc(-150px)": "calc(100% - 150px)",
         "calc(-300px)": "calc(100% - 300px)",
+
+        "vh": "95.5vh",
       },
 
       minWidth: {
@@ -76,6 +78,7 @@ export default {
         "5px": "5px",
         "8px": "8px",
         "10px": "10px",
+        "12px": "12px",
         "15px": "15px",
         "18px": "18px",
         "20px": "20px",
@@ -127,6 +130,7 @@ export default {
         "15px": "15px",
         "20px": "20px",
 
+        "25%": "25%",
         "50%": "50%",
       },
 
@@ -153,6 +157,10 @@ export default {
           1: "#cad4e6",
           2: "#eeeeee",
         },
+        darkMode: {
+          DEFAULT: "#353535",
+          POINT: "#939393",
+        },
         modal: "#000000B0"
       },
 
@@ -166,5 +174,6 @@ export default {
     },
   },
   plugins: [],
+  darkMode: 'class',
 }
 

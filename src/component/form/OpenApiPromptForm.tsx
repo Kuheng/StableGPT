@@ -8,7 +8,7 @@ function OpenApiPromptForm () {
   function onChangeGPTPrompt (e:any) { setChatGPTPromptMessage(e.target.value); }
 
   return (
-    <input className="absolute w-calc(-100px) h-55px top-5px left-15px text-lg outline-none"
+    <input className="absolute w-calc(-100px) h-55px top-5px left-10px pl-5px text-lg outline-none dark:bg-darkMode-POINT dark:text-white"
            value={getChatGPTPromptMessage} onChange={onChangeGPTPrompt} />
   );
 }

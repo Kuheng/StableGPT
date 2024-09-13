@@ -11,7 +11,7 @@ function MainView () {
   const bIsGeneratedState = useRecoilValue(getGenerateLoadingState);
 
   return (
-    <div className="w-50% h-calc(-20) px-15px bg-white">
+    <div className="w-50% h-calc(-20) px-15px bg-white dark:bg-darkMode">
       <GenerateImageViewer />
       <ImageHistoryViewer />
       <PromptModuleViewer />

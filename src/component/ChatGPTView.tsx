@@ -22,7 +22,7 @@ function ChatGPTView () {
   function onClickChatGPTOption () { setToggleChatGptOptionView(true); }
 
   return (
-    <div className="relative w-50% h-calc(-20) px-15px bg-white">
+    <div className="relative w-50% h-calc(-20) px-15px bg-white dark:bg-darkMode">
       <ModuleFrameViewer frameTitle={t("chatGpt:chatGPT")} justify={"center"} height={"1210px"}>
         <ViewerOptionButton optionTitle={t("chatGpt:chatGPTOPtionTitle")} viewState={bIsChatGptOptionView} onClick={onClickChatGPTOption}>
           <ApiKeyInputForm />

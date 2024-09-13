@@ -21,9 +21,9 @@ function PromptInput ({parameterKey}: propsType) {
   return (
     <>
       {colorPickerView === parameterKey?<ColorPickerViewer />:""}
-      <img src={colorPickerIcon} className="absoulte w-8 h-8 -mt-8 ml-96 cursor-pointer" onClick={onClickColorPickerOpen} alt="" />
+      <img src={colorPickerIcon} className="absoulte w-8 h-8 -mt-8 ml-96 cursor-pointer dark:bg-darkMode-POINT dark:rounded-50%" onClick={onClickColorPickerOpen} alt="" />
       <textarea value={stableDiffusionParameter[parameterKey]} onChange={onChangePromptInput}
-                className="w-calc(-20) h-70px border-2 border-gray-1 rounded-md p-2 text-lg outline-none resize-none" />
+                className="w-calc(-20) h-70px border-2 border-gray-1 rounded-md p-2 text-lg outline-none resize-none dark:bg-darkMode-POINT dark:text-white" />
     </>
   );
 }

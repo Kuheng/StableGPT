@@ -18,7 +18,7 @@ function PromptHistoryButton ({children}: propsType) {
   function onClickRemove () { removePromptHistoryList(children); }
 
   return (
-    <div className="relative w-10/12 h-8 mb-7 ml-4 border-b-2 border-b-gray-2">
+    <div className="relative w-10/12 h-8 mb-7 ml-4 pl-2 border-b-2 border-b-gray-2 dark:bg-darkMode-POINT">
       <p className="w-auto h-auto text-md cursor-pointer select-none" onClick={onClickHistory}>{children}</p>
       <img src={closeIcon} className="absolute w-8 h-8 top-0 -right-8 cursor-pointer select-none" onClick={onClickRemove} alt="" />
     </div>

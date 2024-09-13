@@ -18,12 +18,14 @@ function ToggleLocalesButton () {
 
   return (
     <>
-      <img src={languageButton} className="w-40px h-40px cursor-pointer" onClick={onClickChangeLocalesButton} alt="" />
+      <img src={languageButton} className="w-40px h-40px rounded-50% cursor-pointer dark:bg-darkMode-POINT" onClick={onClickChangeLocalesButton} alt="" />
       {languagePopupView?
-      <div className="absolute w-100px h-auto top-50px right-5px p-10px border-1 border-gray-3 rounded-5px bg-white z-40">
-        <button className="text-left w-full pl-1 py-1 text-lg bg-white text-black cursor-pointer hover:bg-gray-2 hover:text-white"
+      <div className="absolute w-100px h-auto top-50px right-5px p-10px border-1 border-gray-3 rounded-5px bg-white z-40 dark:bg-darkMode dark:border-darkMode-POINT">
+        <button className="text-left w-full pl-1 py-1 text-lg bg-white text-black cursor-pointer
+                         hover:bg-gray-2 hover:text-white dark:text-darkMode-POINT dark:bg-darkMode dark:hover:bg-darkMode-POINT"
                 value={'ko-KR'} onClick={onClickToggleLocales}>{t("language:languageKorean")}</button>
-        <button className="text-left w-full pl-1 py-1 text-lg bg-white text-black cursor-pointer hover:bg-gray-2 hover:text-white"
+        <button className="text-left w-full pl-1 py-1 text-lg bg-white text-black cursor-pointer
+                         hover:bg-gray-2 hover:text-white dark:text-darkMode-POINT dark:bg-darkMode dark:hover:bg-darkMode-POINT"
                 value={'en-US'} onClick={onClickToggleLocales}>{t("language:languageEnglish")}</button>
       </div>:''}
     </>

@@ -45,7 +45,7 @@ function GenerateSubmitButton () {
         <button onClick={onClickSubmitGenerate} className="w-150px h-auto border-2 border-blue-1 rounded-15px bg-blue-1 text-white text-xl cursor-pointer select-none
           active:border-blue-2 active:bg-blue-2">
           {t("main:generateButton")}</button>
-        :<button className="w-150px h-auto border-2 border-gray-5 rounded-15px bg-gray-6 text-gray-3 text-xl cursor-not-allowed select-none">
+        :<button className="w-150px h-auto border-2 border-gray-5 rounded-15px bg-gray-6 text-gray-3 text-xl cursor-not-allowed select-none dark:bg-darkMode-POINT">
           {t("main:generateButton")}</button>}</>
   );
 }

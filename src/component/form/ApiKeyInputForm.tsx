@@ -11,9 +11,10 @@ function ApiKeyInputForm () {
   
   return (
     <div className="px-10px pb-10px items-center w-full h-auto">
-      <p className="w-full h-auto text-lg">{t("chatGpt:apiKey")}</p>
+      <p className="w-full h-auto text-lg dark:text-darkMode-POINT">{t("chatGpt:apiKey")}</p>
       <input type="text" value={chatGptApiKey} onChange={onChangeApiKeyInput}
-             className="w-full h-11 pl-1 border-b-2 border-b-black text-lg outline-none" placeholder={"* " + t("chatGpt:apiKeyInputPlaceholder")} />
+             className="w-full h-11 pl-1 border-b-2 border-b-black text-lg outline-none dark:bg-darkMode-POINT dark:text-white"
+             placeholder={"* " + t("chatGpt:apiKeyInputPlaceholder")} />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import logo from "./../assets/image/stableGPTlogo.png"
 
 function TopNavigationBar () {
   return (
-    <div className="flex items-center w-full h-60px justify-between">
+    <div className="flex items-center w-full h-60px justify-between bg-white dark:bg-darkMode">
       <img src={logo} className="w-55px h-55px" alt="" />
       <div className="flex items-center w-130px h-full justify-around">
         <ToggleDarkModeButton />

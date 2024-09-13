@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <TopNavigationBar />
-      <div className="flex w-full h-auto">
+      <div className="flex w-full h-vh dark:bg-darkMode">
         <MainView />
         <ChatGPTView />
       </div>
